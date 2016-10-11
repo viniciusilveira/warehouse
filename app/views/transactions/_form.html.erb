@@ -1,0 +1,45 @@
+<%= form_for(transaction) do |f| %>
+  <% if transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(transaction.errors.count, "error") if transaction.errors.any? %></h2>
+
+      <ul>
+      <% if transaction.errors.any? %>
+        <% transaction.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if !@material.nil? && @material.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@material.errors.count, "error") %></h2>
+      <% if @material.errors.any? %>
+        <% @material.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      <% end %>
+      <ul>
+  <% end %>
+
+  <%= f.fields_for :material do |ff| %>
+    <div class="field">
+      <%= ff.label :name  %>
+      <%= ff.text_field :name, disabled: true %>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :ammount %>
+    <%= f.number_field :ammount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :operation %>
+     <%= radio_button(:transaction, :operation, MovimentationOperation::ADD) %> Adicionar
+     <%= radio_button(:transaction, :operation, MovimentationOperation::REMOVE) %> Remover
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

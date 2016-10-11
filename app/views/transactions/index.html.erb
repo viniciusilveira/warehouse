@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Transactions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Ammount</th>
+      <th>Operation</th>
+      <th>User</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.material.name %></td>
+        <td><%= transaction.ammount %></td>
+        <td><%= transaction.operation %></td>
+        <td><%= transaction.user.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Material', new_material_path %>

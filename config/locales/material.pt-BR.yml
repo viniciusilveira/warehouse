@@ -1,0 +1,12 @@
+pt-BR:
+  material:
+    one: 'Material'
+    other: 'Materiais'
+  attributes:
+    name: 'Nome'
+    ammount: 'Quantidade'
+  successful:
+    messages:
+      created: 'Material criado com sucesso.'
+      updated: 'Material atualizado com sucesso.'
+      deleted: 'Material apagado com sucesso.'
