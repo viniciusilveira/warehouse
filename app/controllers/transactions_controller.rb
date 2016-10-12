@@ -15,12 +15,11 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
     @transaction.material_id = transaction_params[:material_attributes][:id]
     @transaction.user = current_user
-    movimentation = Movimentation.new(@transaction.material_id, @transaction.ammount) 
-    @material = movimentation.movement(@transaction.operation)
+    movimentation = Movimentation.new(@transaction) 
+    @material = movimentation.movement
     respond_to do |format|
-      if @material.valid? && @transaction.save
-
-        format.html { redirect_to @transaction.material, notice: t('successful.messages.updated') }
+      if @material.try(:valid?)
+        format.html { redirect_to materials_path, notice: t('transaction.successful.messages.created') }
         format.json { render :show, status: :created, location: @transaction }
       else
         format.html { render :new }

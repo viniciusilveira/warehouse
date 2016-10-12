@@ -1,4 +1,18 @@
-HOME PAGE
+<div class="jumbotron text-center">
 
-<%= link_to 'Sign in', new_user_session_path %>
-<%= link_to 'Sign up', new_user_registration_path %>
+ <div  class="container">
+   <a class="lang-logo">
+     <i class="fa fa-rebel fa-5x"></i>
+   </a>
+   <h1> WareHouse </h1>
+   <p> Gerencie seu estoque com estilo! </p>
+
+   <%= link_to new_user_session_path, class: "btn btn-lg btn-default" do %>
+     <i class="fa fa-sign-in"> Efetuar Login</i>
+   <% end %>
+
+   <%= link_to new_user_registration_path, class: "btn btn-lg btn-default" do %>
+     <i class="fa fa-user-plus"> Registrar-se</i>
+   <% end %>
+ </div>
+</div>

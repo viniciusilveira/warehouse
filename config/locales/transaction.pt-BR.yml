@@ -1,0 +1,11 @@
+pt-BR:
+  transaction:
+    one: "Movimentar"
+    other: "Movimentações"
+    successful:
+      messages:
+        created: 'Movimentação efetuada com sucesso.'
+  attributes:
+    operation: "Operação"
+    ammount: "Quantidade"
+

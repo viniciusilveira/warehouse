@@ -1,29 +1,36 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Transactions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Ammount</th>
-      <th>Operation</th>
-      <th>User</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @transactions.each do |transaction| %>
-      <tr>
-        <td><%= transaction.material.name %></td>
-        <td><%= transaction.ammount %></td>
-        <td><%= transaction.operation %></td>
-        <td><%= transaction.user.email %></td>
-      </tr>
+<div class="container container-fluidr center-block">
+  <div class="content">
+    <% if !flash.now[:notice].nil? %>
+      <div class="alert  alert-success">
+        <a class="close" data-dismiss="alert" href="#">×</a>  <%= flash.now[:notice] %>
+      </div>
     <% end %>
-  </tbody>
-</table>
+    <div class="col-sm-12">
+      <%= link_to 'Voltar', root_path, class: "btn btn-primary" %>
+      <h1>Movimentações</h1>
+      <div class="col-sm-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Quantidade</th>
+              <th>Operação</th>
+              <th>Usuário</th>
+            </tr>
+          </thead>
 
-<br>
-
-<%= link_to 'New Material', new_material_path %>
+          <tbody>
+            <% @transactions.each do |transaction| %>
+              <tr>
+                <td><%= transaction.material.name %></td>
+                <td><%= transaction.ammount %></td>
+                <td><%= transaction.operation %></td>
+                <td><%= transaction.user.email %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
