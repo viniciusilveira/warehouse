@@ -17,9 +17,9 @@ feature 'Transactions' do
       click_link 'Movimentar'
       
       fill_in 'Quantidade', with: 10
-      page.choose('transaction_operation_add')
-      click_button 'Criar Transaction'
-      expect(page).to have_content('Material atualizado com sucesso.')
+      page.choose('transaction_operation_adicionar')
+      click_button 'Movimentar'
+      expect(page).to have_content('Movimentação efetuada com sucesso.')
     end
 
     it 'remove items in material' do
@@ -27,9 +27,9 @@ feature 'Transactions' do
       click_link 'Movimentar'
 
       fill_in 'Quantidade', with: 3
-      page.choose('transaction_operation_remove')
-      click_button 'Criar Transaction'
-      expect(page).to have_content('Material atualizado com sucesso.')
+      page.choose('transaction_operation_remover')
+      click_button 'Movimentar'
+      expect(page).to have_content('Movimentação efetuada com sucesso.')
     end
 
     it 'removes more material that exists' do
@@ -37,8 +37,8 @@ feature 'Transactions' do
       click_link 'Movimentar'
 
       fill_in 'Quantidade', with: 300
-      page.choose('transaction_operation_remove')
-      click_button 'Criar Transaction'
+      page.choose('transaction_operation_remover')
+      click_button 'Movimentar'
       expect(page).to have_content('Quantidade deve ser maior que 0')
     end
 
@@ -50,8 +50,8 @@ feature 'Transactions' do
       click_link 'Movimentar'
 
       fill_in 'Quantidade', with: 10
-      page.choose('transaction_operation_add')
-      click_button 'Criar Transaction'
+      page.choose('transaction_operation_adicionar')
+      click_button 'Movimentar'
       expect(page).to have_content('Fora do horário de funcionamento')
     end
   end

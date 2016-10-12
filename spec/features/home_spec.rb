@@ -4,12 +4,12 @@ feature 'Home' do
       user = create(:user)
       login_as(user, scope: :user)
       visit root_path
-      expect(page).to have_content 'New Material'
+      expect(page).to have_content 'Novo Material'
     end
 
     it 'not logged' do
       visit root_path
-      expect(page).to have_content 'HOME PAGE'
+      expect(page).to have_content 'WareHouse'
     end
   end
 end

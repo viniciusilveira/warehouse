@@ -62,7 +62,7 @@ RSpec.describe TransactionsController, type: :controller do
 
       it "redirects to the created transaction" do
         post :create, params: {transaction: valid_attributes}
-        expect(response).to redirect_to(Transaction.last.material)
+        expect(response).to redirect_to(materials_path)
       end
     end
 

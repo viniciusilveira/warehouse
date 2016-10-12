@@ -63,7 +63,7 @@ RSpec.describe MaterialsController, type: :controller do
 
       it "redirects to the created material" do
         post :create, params: {material: valid_attributes}
-        expect(response).to redirect_to(Material.last)
+        expect(response).to redirect_to(materials_path)
       end
     end
 
@@ -102,7 +102,7 @@ RSpec.describe MaterialsController, type: :controller do
       it "redirects to the material" do
         material = Material.create! valid_attributes
         put :update, params: {id: material.to_param, material: valid_attributes}
-        expect(response).to redirect_to(material)
+        expect(response).to redirect_to(materials_path)
       end
     end
 
